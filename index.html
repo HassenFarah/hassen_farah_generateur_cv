@@ -1,11 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Générateur de CV Dynamique</title>
 </head>
 <body>
-    
+    <div class="container">
+        <!-- Panel Formulaire -->
+        <div class="panel form-panel">
+            <h1>✨ Générateur de CV</h1>
+            <p class="subtitle">Construisez un CV moderne et professionnel en quelques clics, avec toutes vos expériences, formations et compétences mises en valeur.Impressionnez vos futurs employeurs</p>
+
+            <!-- Informations Personnelles -->
+            <h2>📋 Informations Personnelles</h2>
+            <div class="form-group">
+                <label for="fullName">Nom Complet *</label>
+                <input type="text" id="fullName" placeholder="Ex: Mohamed Ali" required>
+            </div>
+            <div class="form-group">
+                <label for="jobTitle">Titre Professionnel *</label>
+                <input type="text" id="jobTitle" placeholder="Ex: Développeur Full Stack" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="Ex: mohamed.ali@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" placeholder="Ex: +216 12 345 678">
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" id="address" placeholder="Ex: Tunis, Tunisie">
+            </div>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn</label>
+                <input type="text" id="linkedin" placeholder="Ex: linkedin.com/in/mohamed-ali">
+            </div>
+            <div class="form-group">
+                <label for="summary">Résumé Professionnel</label>
+                <textarea id="summary" placeholder="Décrivez votre profil en quelques lignes..."></textarea>
+            </div>
+
+            <!-- Expériences Professionnelles -->
+            <h2>💼 Expériences Professionnelles</h2>
+            <div id="experiences-container"></div>
+            <button class="btn btn-secondary" id="add-experience-btn">+ Ajouter une Expérience</button>
+
+            <!-- Formations -->
+            <h2>🎓 Formations</h2>
+            <div id="education-container"></div>
+            <button class="btn btn-secondary" id="add-education-btn">+ Ajouter une Formation</button>
+
+            <!-- Compétences -->
+            <h2>⚡ Compétences</h2>
+            <div id="skills-container"></div>
+            <div class="form-group">
+                <input type="text" id="skillInput" placeholder="Ex: JavaScript, React, Node.js...">
+                <button class="btn btn-secondary" id="add-skill-btn">+ Ajouter</button>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+                <button class="btn btn-primary" id="download-pdf-btn">📥 Télécharger PDF</button>
+                <button class="btn btn-primary" id="print-btn">🖨️ Imprimer</button>
+                <button class="btn btn-secondary" id="save-data-btn">💾 Sauvegarder</button>
+            </div>
+        </div>
+
+        <!-- Panel Prévisualisation -->
+        <div class="panel preview-panel" id="cv-preview">
+            <div class="cv-header">
+                <div class="cv-name" id="preview-name">Votre Nom</div>
+                <div class="cv-title" id="preview-title">Votre Titre Professionnel</div>
+                <div class="cv-contact">
+                    <span id="preview-email">📧 email@exemple.com</span>
+                    <span id="preview-phone">📱 +216 00 000 000</span>
+                    <span id="preview-address">📍 Votre Adresse</span>
+                    <span id="preview-linkedin">🔗 LinkedIn</span>
+                </div>
+            </div>
+
+            <div class="cv-body">
+                <!-- Section Résumé -->
+                <div class="cv-section" id="summary-section" style="display: none;">
+                    <div class="cv-section-title">À Propos</div>
+                    <p id="preview-summary" class="cv-summary-text"></p>
+                </div>
+                
+                <!-- Section Expériences -->
+                <div class="cv-section" id="experience-section">
+                    <div class="cv-section-title">Expériences Professionnelles</div>
+                    <div id="preview-experiences" class="empty-state">Aucune expérience ajoutée</div>
+                </div>
+
+                <!-- Section Formation -->
+                <div class="cv-section" id="education-section">
+                    <div class="cv-section-title">Formation</div>
+                    <div id="preview-education" class="empty-state">Aucune formation ajoutée</div>
+                </div>
+
+                <!-- Section Compétences -->
+                <div class="cv-section" id="skills-section">
+                    <div class="cv-section-title">Compétences</div>
+                    <div id="preview-skills" class="empty-state">Aucune compétence ajoutée</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

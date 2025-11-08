@@ -32,7 +32,7 @@ _(Le lien sera ajouté après activation de GitHub Pages)_
 ```
 nom_prenom_generateur_cv/
 │
-├── index.html          # Page principale (⏳ En cours)
+├── index.html          # Page principale (✅ Actuelle)
 ├── css/
 │   └── style.css      # Styles CSS (⏳ En cours)
 ├── js/
@@ -44,7 +44,7 @@ nom_prenom_generateur_cv/
 
 ## 📖 Nouveautés Explorées
 
-### Phase 1 - HTML (À venir)
+### Phase 1 - HTML (Actuelle)
 - ✅ Structure HTML5 sémantique
 - ✅ Formulaires avec validation
 - ✅ Organisation en sections
@@ -100,14 +100,14 @@ nom_prenom_generateur_cv/
 5. ⏳ Déployer sur GitHub Pages
 
 ## 📊 Progression du Projet
-- [x] Structure HTML - 1%
+- [x] Structure HTML - 99%
 - [ ] Styles CSS - 0%
 - [ ] JavaScript - 0%
 - [ ] Tests et optimisations - 0%
 
 ## 📝 Journal de Développement
 
-### Commit 1 - [08/11/2025]
+### Commit 1/2 - [08/11/2025]
 **Ajout :** Structure HTML 
 - Formulaire avec tous les champs nécessaires
 - Zone de prévisualisation du CV
