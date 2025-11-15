@@ -1,0 +1,179 @@
+/* ========================================
+   GÉNÉRATEUR DE CV - STYLES CSS
+   Phase 1 : 40% - Structure de base et Layout
+   ======================================== */
+
+/* RESET & GLOBAL STYLES */
+   *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom,#000000 ,#3e0577 ,#760404);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+   }
+
+/*LAYOUT CONTAINER*/
+   .container{
+    min-width: 1400px;            /*crée un conteneur centré, large, organisé en deux colonnes égales, avec un espace de 30px entre elles.*/
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+   }
+/*PANELS*/
+   .panel{
+    background: white;
+    color: #000;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(78, 5, 235, 0.2);
+   }
+/*TYPOGRAPHY*/
+   h1{
+    color: #250794;
+    margin-bottom: 10px;
+    font-size: 28px;
+   }
+   .subtitle{
+    color: #3d0575;
+    margin-bottom: 20px;
+    font-weight: 500;
+   }
+   h2{
+    color: #6b0404;
+    margin: 25px 0 15px 0;
+    font-size: 20px ;
+    border-bottom: 2px solid #6e0606;
+    padding-bottom: 8px;
+   }
+/*FORM ELEMENTS*/
+   .form-group{
+    margin-bottom: 20px;
+   }
+   label{
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+    font-weight: 600;
+    font-size: 14px;
+   }
+   input,
+   textarea,
+   select{
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+    font-family: inherit;
+   }
+   input:focus,
+   textarea:focus,
+   select:focus{
+    outline: none;
+    border-color: #6e0606;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+   }
+   textarea{
+    resize: vertical;
+    min-height: 80px;
+   }
+/*BUTTONS- Base styles only(40%)*/
+    .btn{
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0,3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }   
+    .btn-primary{
+        background: #250794;
+        color: white;
+    }
+    btn-secondary {
+    background: #48bb78;
+    color: white;
+    margin-top: 10px;
+    }
+    .btn-danger {
+    background: #f56565;
+    color: white;
+    padding: 8px 16px;
+    font-size: 12px;
+    } 
+/*CV PREVIEW-HEADER*/
+    #cv-preview{
+        background: white;
+        min-height: 800px;
+        position: relative;
+    }
+    .cv-header{
+        background: linear-gradient(135deg, #e6e6e6 0%, #3a3a3a 50%, #0d0d0d 100%);
+        color: whitesmoke;
+        padding: 40px 30px;
+        border-radius: 10px 10px 0 0;
+    }
+    .cv-name {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    }
+    .cv-title {
+    font-size: 18px;
+    opacity: 0.95;
+    margin-bottom: 20px;
+    }
+    .cv-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    }
+/*CV PREVIEW - BODY*/
+    .cv-body{
+        padding: 30px;
+    }
+    .cv-section{
+        margin-bottom: 30px;
+    }
+    .cv-section-title {
+    font-size: 22px;
+    color: #000;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #000;
+    font-weight: bold;
+    }
+    .cv-summary-text {
+    line-height: 1.8;
+    color: #4a5568;
+    }
+/*RESPONSIVE DESIGN - BASIC*/
+    @media (max-width: 1024px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+/* ========================================
+   NOTE : 60% restant à ajouter dans la prochaine phase
+   - Animations et transitions
+   - Styles des sections dynamiques
+   - Styles des compétences
+   - Design avancé des boutons
+   - Responsive mobile complet
+   - Print styles
+   ======================================== */
+

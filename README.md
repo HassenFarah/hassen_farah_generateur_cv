@@ -1,9 +1,9 @@
 # Générateur de CV Dynamique
 
 ## 👨‍💻 Informations du Projet
-- **Nom :** [Hassen]
-- **Prénom :** [Farah]
-- **Email :** [Farahhassen00@gmail.com]
+- **Nom :**Hassen
+- **Prénom :** Farah
+- **Email :** Farahhassen00@gmail.com
 - **Cours :** Développement Web - FST
 
 ## 📝 Description
@@ -50,11 +50,23 @@ nom_prenom_generateur_cv/
 - ✅ Organisation en sections
 - ✅ Accessibilité (labels, placeholders)
 
-### Phase 2 - CSS (À venir)
-- Animations et transitions CSS
-- CSS Grid et Flexbox
-- Design responsive
-- Variables CSS
+### Phase 2 - CSS (🔄 En cours - 40%)
+**Ce qui est fait :**
+- ✅ Reset CSS et styles globaux
+- ✅ CSS Grid pour le layout deux colonnes
+- ✅ Styles des formulaires avec focus states
+- ✅ Design de l'en-tête du CV avec gradient
+- ✅ Typographie et hiérarchie visuelle
+- ✅ Responsive basique (tablette)
+- ✅ Palette de couleurs cohérente
+
+**À venir (60%) :**
+- ⏳ Animations et transitions avancées
+- ⏳ Styles des sections dynamiques
+- ⏳ Design des tags de compétences
+- ⏳ Effets hover sur les boutons
+- ⏳ Responsive mobile complet
+- ⏳ Styles d'impression
 
 ### Phase 3 - JavaScript (À venir)
 - Manipulation du DOM
@@ -90,6 +102,59 @@ nom_prenom_generateur_cv/
 - Placeholders informatifs
 - Types d'input appropriés (email, tel, month)
 
+### Phase 2 - CSS (40% complété)
+
+#### Difficulté 1 : Layout responsive avec Grid
+**Problème :** Comment créer un layout deux colonnes qui s'adapte automatiquement sur mobile.
+
+**Solution :** 
+- Utilisation de CSS Grid avec `grid-template-columns: 1fr 1fr`
+- Media query à 1024px pour passer en une colonne sur tablette/mobile
+- Gap de 30px pour espacer les panels
+
+**Code utilisé :**
+```css
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+```
+
+#### Difficulté 2 : États de focus des inputs
+**Problème :** Améliorer l'accessibilité et l'expérience utilisateur lors de la saisie.
+
+**Solution :**
+- Transition sur tous les champs de formulaire
+- Border-color change au focus
+- Box-shadow subtile pour indiquer le champ actif
+- Outline enlevé mais remplacé par un effet visuel
+
+**Code utilisé :**
+```css
+input:focus {
+    outline: none;
+    border-color: #6e0606;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+```
+
+#### Difficulté 3 : Cohérence de la palette de couleurs
+**Problème :** Maintenir une cohérence visuelle dans tout le CV.
+
+**Solution :**
+- Couleur principale : Rouge sombre / Bordeaux ➡️ #6e0606
+(+ parfois ses variantes comme #6b0404 ou #760404)
+- Gradient utilisé pour l'arrière-plan et l'en-tête du CV
+- Même couleur pour les titres et bordures
+- Création d'une hiérarchie visuelle claire
+
 ## 📚 Ressources Utilisées
 - Support du cours de Développement Web - FST
 ## 🚀 Prochaines Étapes
@@ -101,7 +166,14 @@ nom_prenom_generateur_cv/
 
 ## 📊 Progression du Projet
 - [x] Structure HTML - 99%
-- [ ] Styles CSS - 0%
+- [x] Styles CSS - 40%
+  - [x] Reset et styles globaux
+  - [x] Layout Grid
+  - [x] Formulaires
+  - [x] En-tête CV
+  - [ ] Animations (à venir)
+  - [ ] Sections dynamiques (à venir)
+  - [ ] Print styles (à venir)
 - [ ] JavaScript - 0%
 - [ ] Tests et optimisations - 0%
 
@@ -114,5 +186,14 @@ nom_prenom_generateur_cv/
 - Organisation en sections logiques
 - README initial avec documentation
 
+### Commit 2 - [15/11/2025]
+**Ajout :** Styles CSS - Phase 1 (40%)
+- Implémentation du layout Grid deux colonnes
+- Styles des formulaires avec états de focus
+- Design de l'en-tête du CV avec gradient
+- Typographie et hiérarchie visuelle
+- Responsive basique pour tablette
+- Palette de couleurs cohérente
 
-**Dernière mise à jour :** [08/11/2025]
+
+**Dernière mise à jour :** [15/11/2025]
