@@ -1,7 +1,7 @@
 # Générateur de CV Dynamique
 
 ## 👨‍💻 Informations du Projet
-- **Nom :**Hassen
+- **Nom :** Hassen
 - **Prénom :** Farah
 - **Email :** Farahhassen00@gmail.com
 - **Cours :** Développement Web - FST
