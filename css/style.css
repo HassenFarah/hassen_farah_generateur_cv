@@ -168,12 +168,279 @@
 
 
 /* ========================================
-   NOTE : 60% restant à ajouter dans la prochaine phase
-   - Animations et transitions
-   - Styles des sections dynamiques
-   - Styles des compétences
-   - Design avancé des boutons
-   - Responsive mobile complet
-   - Print styles
+   Phase 2:60% -Animation et styles avancés
    ======================================== */
 
+/*Animation*/
+    @keyframes slideIn{
+        from{
+            opacity:0;
+            transform: translateY(30px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn{
+        from{
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @keyframes slideUp{
+        from{
+            opacity:0;
+            transform:translateY(20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes popIn{
+        0%{
+            transform: scale(0);
+        }
+        50%{
+            transform: scale(1.1);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+
+/*Appliquer l'animation aux panels*/
+    .panel{
+        animation: slideIn 0.5s ease-out;
+    }
+    .cv-section{
+        animation: slideIn 0.4s ease-out;
+    }
+
+/*BUTTONS - Effets hover et interactions */
+
+    .btn-primary:hover{
+        background: #5568d3;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(2, 12, 63, 0.3);
+    }
+    .btn-secondary:hover{
+        background: #0eb45b;
+        transform: translateY(-2px);
+    }
+    .btn-danger:hover{
+        background: #e53e3e;
+    }
+    .btn:active {
+    transform: translateY(0);
+    }
+/* DYNAMIC SECTIONS*/
+    .dynamic-section{
+        background: #b2dbf7;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 2px solid #e2e8f0;
+        position: relative;
+        animation: fadeIn 0.3s ease-out;
+
+    }
+    .dynamic-section .btn-danger{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+/*ACTIONS SECTION*/
+    .actions{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+/* CV ITEMS (Experiences & Education)*/
+    .cv-item{
+        margin-bottom: 20px;
+        padding-left: 20px;
+        border-left: 3px solid #3b0a3b;
+        transition: border-color 0.3s;
+    }
+    .cv-item:hover {
+    border-left-color: #667eea;
+    }
+
+    .cv-item-title {
+        font-weight: bold;
+        font-size: 16px;
+        color: #2d3748;
+        margin-bottom: 5px;
+    }
+
+    .cv-item-subtitle {
+        color: #718096;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .cv-item-date {
+        color: #a0aec0;
+        font-size: 13px;
+        font-style: italic;
+        margin-bottom: 8px;
+    }
+
+    .cv-item-description {
+        color: #4a5568;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+/* SKILLS SECTION*/
+    .skills-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(150px,1fs));
+        gap: 10px;
+
+    }
+    .skill-tag {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+        animation: popIn 0.3s ease-out;
+        transition: transform 0.2s;
+    }
+    .skill-tag:hover{
+        transform: scale(1.05);
+    }
+/*EMPTY STATE*/
+    .empty-state{
+        text-align: center;
+        color: #a0aec0;
+        padding: 40px;
+        font-style: italic;
+    }
+/*SCROLLBAR PERSONNALISÉE*/
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #b3b1bc;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #4d0457;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #710d10;
+    }
+/* RESPONSIVE DESIGN - Mobile*/
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+
+        .panel {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .cv-name {
+            font-size: 28px;
+        }
+
+        .cv-title {
+            font-size: 16px;
+        }
+
+        .cv-contact {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+
+        .actions {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+/*PRINT STYLES */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .form-panel {
+        display: none;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .panel {
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .cv-section {
+        page-break-inside: avoid;
+    }
+
+    .cv-header {
+        border-radius: 0;
+    }
+
+    /* Éviter les sauts de page au milieu des items */
+    .cv-item {
+        page-break-inside: avoid;
+    }
+
+    /* Masquer les éléments non imprimables */
+    button {
+        display: none !important;
+    }
+}
+/*TRANSITIONS GLOBALES*/
+* {
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+button,
+input,
+textarea {
+    transition: all 0.3s ease;
+}
+
+/*FOCUS VISIBLE (Accessibilité) */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}

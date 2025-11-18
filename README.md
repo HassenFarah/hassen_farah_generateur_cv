@@ -16,7 +16,7 @@ _(Le lien sera ajouté après activation de GitHub Pages)_
 
 ## 🛠️ Technologies Utilisées
 - **HTML5** : Structure sémantique et formulaires
-- **CSS3** : Design moderne, animations, responsive design _(à venir)_
+- **CSS3** : Design moderne, animations, responsive design 
 - **JavaScript ES6** : Manipulation du DOM et interactivité _(à venir)_
 
 ## ✨ Fonctionnalités Principales
@@ -34,7 +34,7 @@ nom_prenom_generateur_cv/
 │
 ├── index.html          # Page principale (✅ Actuelle)
 ├── css/
-│   └── style.css      # Styles CSS (⏳ En cours)
+│   └── style.css      # Styles CSS (✅ 100% complété)
 ├── js/
 │   └── app.js         # JavaScript (⏳ En cours)
 ├── assets/
@@ -44,29 +44,30 @@ nom_prenom_generateur_cv/
 
 ## 📖 Nouveautés Explorées
 
-### Phase 1 - HTML (Actuelle)
+### Phase 1 - HTML (✅ 99% Complétée)
 - ✅ Structure HTML5 sémantique
 - ✅ Formulaires avec validation
 - ✅ Organisation en sections
 - ✅ Accessibilité (labels, placeholders)
 
-### Phase 2 - CSS (🔄 En cours - 40%)
-**Ce qui est fait :**
+### Phase 2 - CSS (✅ 98% Complétée)
+**Styles de base :**
 - ✅ Reset CSS et styles globaux
 - ✅ CSS Grid pour le layout deux colonnes
 - ✅ Styles des formulaires avec focus states
 - ✅ Design de l'en-tête du CV avec gradient
 - ✅ Typographie et hiérarchie visuelle
-- ✅ Responsive basique (tablette)
-- ✅ Palette de couleurs cohérente
 
-**À venir (60%) :**
-- ⏳ Animations et transitions avancées
-- ⏳ Styles des sections dynamiques
-- ⏳ Design des tags de compétences
-- ⏳ Effets hover sur les boutons
-- ⏳ Responsive mobile complet
-- ⏳ Styles d'impression
+**Styles avancés :**
+- ✅ **Animations CSS** : slideIn, fadeIn, slideUp, popIn
+- ✅ **Effets hover** : transform, box-shadow sur boutons
+- ✅ **Sections dynamiques** : styles avec border et background
+- ✅ **Tags de compétences** : design avec gradient et animation
+- ✅ **Scrollbar personnalisée** : style webkit
+- ✅ **Responsive mobile** : media queries complètes
+- ✅ **Print styles** : optimisation pour impression/PDF
+- ✅ **Transitions globales** : fluidité des interactions
+- ✅ **Accessibilité** : focus-visible pour navigation clavier
 
 ### Phase 3 - JavaScript (À venir)
 - Manipulation du DOM
@@ -102,7 +103,7 @@ nom_prenom_generateur_cv/
 - Placeholders informatifs
 - Types d'input appropriés (email, tel, month)
 
-### Phase 2 - CSS (40% complété)
+### Phase 2 - CSS 
 
 #### Difficulté 1 : Layout responsive avec Grid
 **Problème :** Comment créer un layout deux colonnes qui s'adapte automatiquement sur mobile.
@@ -166,14 +167,14 @@ input:focus {
 
 ## 📊 Progression du Projet
 - [x] Structure HTML - 99%
-- [x] Styles CSS - 40%
+- [x] Styles CSS - 98%
   - [x] Reset et styles globaux
   - [x] Layout Grid
   - [x] Formulaires
   - [x] En-tête CV
-  - [ ] Animations (à venir)
-  - [ ] Sections dynamiques (à venir)
-  - [ ] Print styles (à venir)
+  - [x] Animations
+  - [x] Sections dynamiques
+  - [x] Print styles
 - [ ] JavaScript - 0%
 - [ ] Tests et optimisations - 0%
 
@@ -195,5 +196,18 @@ input:focus {
 - Responsive basique pour tablette
 - Palette de couleurs cohérente
 
+### Commit 3 - [18/11/2025]
+**Ajout :** Finalisation CSS (100%)
+**CSS (60% ajouté) :**
+- Animations complexes (slideIn, fadeIn, slideUp, popIn)
+- Effets hover interactifs sur tous les boutons
+- Styles complets des sections dynamiques
+- Design des tags de compétences avec gradient
+- Scrollbar personnalisée
+- Responsive mobile complet (< 768px)
+- Print styles pour impression/PDF
+- Transitions globales pour fluidité
+- Amélioration de l'accessibilité (focus-visible)
 
-**Dernière mise à jour :** [15/11/2025]
+
+**Dernière mise à jour :** [18/11/2025]
