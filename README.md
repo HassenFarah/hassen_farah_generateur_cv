@@ -36,7 +36,7 @@ nom_prenom_generateur_cv/
 ├── css/
 │   └── style.css      # Styles CSS (✅ 100% complété)
 ├── js/
-│   └── app.js         # JavaScript (⏳ En cours)
+│   └── app.js         # JavaScript (🔄 20% complété)
 ├── assets/
 │   └── screenshots/   # Captures d'écran
 └── README.md          # Documentation
@@ -69,11 +69,24 @@ nom_prenom_generateur_cv/
 - ✅ **Transitions globales** : fluidité des interactions
 - ✅ **Accessibilité** : focus-visible pour navigation clavier
 
-### Phase 3 - JavaScript (À venir)
-- Manipulation du DOM
-- Gestion d'événements
-- Stockage de données
-- Génération dynamique
+### Phase 3 - JavaScript (🔄 En cours - 20%)
+**Ce qui est fait :**
+- ✅ Initialisation de l'application au chargement
+- ✅ Configuration des event listeners
+- ✅ Mise à jour en temps réel des informations personnelles
+- ✅ Fonction de prévisualisation du CV
+- ✅ Fonction utilitaire de formatage des dates
+- ✅ Structure des variables globales (tableaux)
+- ✅ Messages de debug dans la console
+
+**À venir (80%) :**
+- ⏳ Ajout/suppression dynamique d'expériences
+- ⏳ Ajout/suppression dynamique de formations
+- ⏳ Gestion des compétences (ajouter/supprimer)
+- ⏳ Affichage dynamique dans la prévisualisation
+- ⏳ Sauvegarde des données (export JSON)
+- ⏳ Fonction de génération PDF
+- ⏳ Fonction d'impression
 
 ## 🔧 Difficultés Rencontrées et Solutions
 
@@ -156,15 +169,71 @@ input:focus {
 - Même couleur pour les titres et bordures
 - Création d'une hiérarchie visuelle claire
 
+### Phase 3 - JavaScript (20% complété)
+
+#### Difficulté 1 : Mise à jour en temps réel
+**Problème :** Comment détecter les changements dans les champs et mettre à jour instantanément le CV.
+
+**Solution :** 
+- Utilisation de l'événement `input` plutôt que `change` ou `keyup`
+- L'événement `input` se déclenche à chaque modification de valeur
+- Attachement des listeners via `addEventListener` sur chaque champ
+- Appel d'une fonction centrale `updatePreview()` qui orchestre toutes les mises à jour
+
+**Code utilisé :**
+```javascript
+personalFields.forEach(fieldId => {
+    const element = document.getElementById(fieldId);
+    if (element) {
+        element.addEventListener('input', updatePreview);
+    }
+});
+```
+
+#### Difficulté 2 : Valeurs par défaut dans la prévisualisation
+**Problème :** Afficher des valeurs de placeholder dans le CV quand les champs sont vides.
+
+**Solution :**
+- Utilisation de l'opérateur OR (`||`) pour définir des valeurs par défaut
+- Vérification avec `.trim()` pour le résumé (ignorer les espaces)
+- Affichage/masquage conditionnel de sections
+
+**Code utilisé :**
+```javascript
+const name = document.getElementById('fullName').value || 'Votre Nom';
+if (summary && summary.trim() !== '') {
+    summarySection.style.display = 'block';
+} else {
+    summarySection.style.display = 'none';
+}
+```
+
+#### Difficulté 3 : Organisation du code JavaScript
+**Problème :** Structurer le code de manière lisible et maintenable.
+
+**Solution :**
+- Séparation claire en sections avec commentaires
+- Variables globales au début
+- Fonctions spécialisées pour chaque tâche
+- Convention de nommage cohérente (camelCase)
+- Logs de debug pour faciliter le développement
+
+#### Difficulté 4 : Ajout automatique d'icônes
+**Problème :** Ajouter des émojis aux informations de contact sans les dupliquer.
+
+**Solution :**
+- Vérification avec `startsWith()` avant d'ajouter l'icône
+- Ternaire pour ajouter l'icône seulement si absente
+- Assure que l'icône n'est jamais dupliquée même après plusieurs mises à jour
+
+**Code utilisé :**
+```javascript
+document.getElementById('preview-email').textContent = 
+    email.startsWith('📧') ? email : '📧 ' + email;
+```
+
 ## 📚 Ressources Utilisées
 - Support du cours de Développement Web - FST
-## 🚀 Prochaines Étapes
-1. ⏳ Ajouter les styles CSS
-2. ⏳ Implémenter la logique JavaScript
-3. ⏳ Tester la génération dynamique du CV
-4. ⏳ Optimiser pour mobile
-5. ⏳ Déployer sur GitHub Pages
-
 ## 📊 Progression du Projet
 - [x] Structure HTML - 99%
 - [x] Styles CSS - 98%
@@ -175,7 +244,14 @@ input:focus {
   - [x] Animations
   - [x] Sections dynamiques
   - [x] Print styles
-- [ ] JavaScript - 0%
+- [x] JavaScript - 20%
+  - [x] Initialisation
+  - [x] Event listeners
+  - [x] Mise à jour temps réel (infos personnelles)
+  - [ ] Gestion expériences (à venir)
+  - [ ] Gestion formations (à venir)
+  - [ ] Gestion compétences (à venir)
+  - [ ] Export/Sauvegarde (à venir)
 - [ ] Tests et optimisations - 0%
 
 ## 📝 Journal de Développement
@@ -209,5 +285,15 @@ input:focus {
 - Transitions globales pour fluidité
 - Amélioration de l'accessibilité (focus-visible)
 
+### Commit 4 - [19/11/2025]
+**Ajout :** JavaScript Phase 1 (20%)
+**JavaScript (20%) :**
+- Initialisation complète de l'application
+- Configuration des event listeners sur champs personnels
+- Mise à jour en temps réel de la prévisualisation
+- Gestion des valeurs par défaut
+- Fonction de formatage des dates
+- Structure des données (variables globales)
+- Logs de debug
 
-**Dernière mise à jour :** [18/11/2025]
+**Dernière mise à jour :** [19/11/2025]
