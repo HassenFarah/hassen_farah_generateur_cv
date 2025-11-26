@@ -17,7 +17,10 @@ _(Le lien sera ajouté après activation de GitHub Pages)_
 ## 🛠️ Technologies Utilisées
 - **HTML5** : Structure sémantique et formulaires
 - **CSS3** : Design moderne, animations, responsive design 
-- **JavaScript ES6** : Manipulation du DOM et interactivité _(à venir)_
+- **JavaScript ES6** : Manipulation du DOM, événements, CRUD dynamique 🔄 (60%)
+  - Array methods : `push()`, `filter()`, `find()`, `map()`, `splice()`
+  - DOM manipulation : `createElement()`, `appendChild()`, `innerHTML`
+  - Event handling : `addEventListener()`, `onclick`
 
 ## ✨ Fonctionnalités Principales
 1. ✅ Formulaire d'informations personnelles
@@ -36,7 +39,7 @@ nom_prenom_generateur_cv/
 ├── css/
 │   └── style.css      # Styles CSS (✅ 100% complété)
 ├── js/
-│   └── app.js         # JavaScript (🔄 20% complété)
+│   └── app.js         # JavaScript (🔄 60% complété)
 ├── assets/
 │   └── screenshots/   # Captures d'écran
 └── README.md          # Documentation
@@ -79,14 +82,24 @@ nom_prenom_generateur_cv/
 - ✅ Structure des variables globales (tableaux)
 - ✅ Messages de debug dans la console
 
-**À venir (80%) :**
-- ⏳ Ajout/suppression dynamique d'expériences
-- ⏳ Ajout/suppression dynamique de formations
-- ⏳ Gestion des compétences (ajouter/supprimer)
-- ⏳ Affichage dynamique dans la prévisualisation
+**Phase 2 (40% ajouté) :**
+- ✅ **Gestion complète des expériences** : ajout, modification, suppression
+- ✅ **Gestion complète des formations** : ajout, modification, suppression
+- ✅ **Gestion complète des compétences** : ajout, suppression
+- ✅ **Création dynamique d'éléments HTML** : `createElement()`, `innerHTML`
+- ✅ **Array methods avancés** : `push()`, `filter()`, `find()`, `map()`, `splice()`
+- ✅ **Génération d'IDs uniques** : utilisation de `Date.now()`
+- ✅ **Validation** : vérification des doublons de compétences
+- ✅ **Prévisualisation dynamique complète** : expériences, formations, compétences
+- ✅ **Event handling avancé** : `onclick` inline, `addEventListener`
+- ✅ **Logs de debug détaillés** : suivi des actions utilisateur
+
+**À venir (40%) :**
 - ⏳ Sauvegarde des données (export JSON)
-- ⏳ Fonction de génération PDF
-- ⏳ Fonction d'impression
+- ⏳ Chargement des données (import JSON)
+- ⏳ Génération PDF
+- ⏳ Fonction d'impression optimisée
+- ⏳ LocalStorage pour persistance
 
 ## 🔧 Difficultés Rencontrées et Solutions
 
@@ -169,7 +182,7 @@ input:focus {
 - Même couleur pour les titres et bordures
 - Création d'une hiérarchie visuelle claire
 
-### Phase 3 - JavaScript (20% complété)
+### Phase 3 - JavaScript (60% complété)
 
 #### Difficulté 1 : Mise à jour en temps réel
 **Problème :** Comment détecter les changements dans les champs et mettre à jour instantanément le CV.
@@ -231,6 +244,121 @@ if (summary && summary.trim() !== '') {
 document.getElementById('preview-email').textContent = 
     email.startsWith('📧') ? email : '📧 ' + email;
 ```
+#### Difficulté 5 : Génération d'IDs uniques
+**Problème :** Comment identifier de manière unique chaque expérience/formation pour pouvoir les modifier/supprimer.
+
+**Solution :**
+- Utilisation de `Date.now()` qui retourne le timestamp en millisecondes
+- Garantit l'unicité car chaque appel donne un nombre différent
+- Permet de cibler précisément l'élément à modifier/supprimer
+
+**Code utilisé :**
+```javascript
+const id = Date.now(); // Exemple: 1701234567890
+const exp = { id: id, company: '', position: '', ... };
+```
+
+#### Difficulté 6 : Création dynamique d'éléments HTML
+**Problème :** Comment créer des formulaires complexes avec JavaScript tout en gardant le code lisible.
+
+**Solution :**
+- Utilisation de `createElement()` pour créer le conteneur
+- Template literals (backticks) pour le HTML complexe avec `innerHTML`
+- Événements `onchange` inline pour la simplicité
+- `appendChild()` pour ajouter au DOM
+
+**Code utilisé :**
+```javascript
+const expDiv = document.createElement('div');
+expDiv.className = 'dynamic-section';
+expDiv.innerHTML = `
+    <button onclick="removeExperience(${id})">✕</button>
+    <input onchange="updateExperience(${id}, 'company', this.value)">
+`;
+container.appendChild(expDiv);
+```
+
+#### Difficulté 7 : Mise à jour vs Suppression dans les tableaux
+**Problème :** Différence entre modifier un élément existant et le supprimer d'un tableau.
+
+**Solution :**
+- **Modification** : Utiliser `find()` pour localiser l'objet puis modifier ses propriétés
+- **Suppression** : Utiliser `filter()` pour créer un nouveau tableau sans l'élément
+- `find()` retourne l'objet (référence), on peut le modifier directement
+- `filter()` retourne un nouveau tableau, il faut réassigner
+
+**Code utilisé :**
+```javascript
+// Modification
+const exp = experiences.find(e => e.id === id);
+exp.company = 'Nouvelle valeur'; // Modifie l'objet original
+
+// Suppression
+experiences = experiences.filter(e => e.id !== id); // Nouveau tableau
+```
+
+#### Difficulté 8 : Validation et prévention des doublons
+**Problème :** Empêcher l'ajout de compétences en double ou vides.
+
+**Solution :**
+- `trim()` pour supprimer les espaces avant/après
+- Vérification si la valeur est vide avec `=== ''`
+- `includes()` pour vérifier si la compétence existe déjà
+- `alert()` pour informer l'utilisateur
+- `return` pour arrêter l'exécution si invalide
+
+**Code utilisé :**
+```javascript
+const skillText = input.value.trim();
+if (skillText === '') {
+    alert('⚠️ Veuillez entrer une compétence');
+    return;
+}
+if (skills.includes(skillText)) {
+    alert('⚠️ Cette compétence existe déjà');
+    return;
+}
+```
+
+#### Difficulté 9 : Utilisation de splice() pour suppression par index
+**Problème :** Les compétences sont dans un tableau simple (pas d'objets avec ID).
+
+**Solution :**
+- Utiliser l'index du tableau directement
+- `splice(index, 1)` supprime 1 élément à la position `index`
+- Différent de `filter()` car modifie le tableau original
+- Plus efficace pour les tableaux simples sans ID
+
+**Code utilisé :**
+```javascript
+function removeSkill(index) {
+    const removedSkill = skills[index]; // Sauvegarder pour le log
+    skills.splice(index, 1); // Supprime à l'index
+    renderSkills();
+}
+```
+
+#### Difficulté 10 : Template literals pour génération HTML
+**Problème :** Créer du HTML dynamique avec des valeurs JavaScript de manière lisible.
+
+**Solution :**
+- Utilisation des template literals (backticks)
+- Interpolation avec `${variable}`
+- Opérateur ternaire pour conditions : `${condition ? valeur1 : valeur2}`
+- `map()` pour transformer un tableau en HTML
+- `join('')` pour concaténer sans virgules
+
+**Code utilisé :**
+```javascript
+container.innerHTML = experiences.map(exp => `
+    <div class="cv-item">
+        <div class="cv-item-title">${exp.position || 'Poste'}</div>
+        <div class="cv-item-date">
+            ${formatDate(exp.startDate)} - ${exp.endDate ? formatDate(exp.endDate) : 'Présent'}
+        </div>
+    </div>
+`).join('');
+```
 
 ## 📚 Ressources Utilisées
 - Support du cours de Développement Web - FST
@@ -244,14 +372,16 @@ document.getElementById('preview-email').textContent =
   - [x] Animations
   - [x] Sections dynamiques
   - [x] Print styles
-- [x] JavaScript - 20%
-  - [x] Initialisation
+- [x] JavaScript - 60%
+  - [x] Initialisation et configuration
   - [x] Event listeners
   - [x] Mise à jour temps réel (infos personnelles)
-  - [ ] Gestion expériences (à venir)
-  - [ ] Gestion formations (à venir)
-  - [ ] Gestion compétences (à venir)
-  - [ ] Export/Sauvegarde (à venir)
+  - [x] **Gestion expériences (CRUD complet)**
+  - [x] **Gestion formations (CRUD complet)**
+  - [x] **Gestion compétences (ajout/suppression)**
+  - [x] **Prévisualisation dynamique complète**
+  - [ ] Sauvegarde/Export (à venir)
+  - [ ] Génération PDF (à venir)
 - [ ] Tests et optimisations - 0%
 
 ## 📝 Journal de Développement
@@ -295,5 +425,60 @@ document.getElementById('preview-email').textContent =
 - Fonction de formatage des dates
 - Structure des données (variables globales)
 - Logs de debug
+
+### Commit 5 - [26/11/2025]
+**Ajout :** JavaScript Phase 2 (40% ajouté - Total 60%)
+
+**Fonctionnalités implémentées :**
+
+**Expériences professionnelles :**
+- Ajout dynamique d'expériences avec formulaire complet
+- Modification en temps réel de chaque champ
+- Suppression avec confirmation visuelle
+- Affichage dans le CV avec formatage professionnel
+- Génération d'IDs uniques avec `Date.now()`
+
+**Formations :**
+- Système identique aux expériences
+- Gestion complète CRUD (Create, Read, Update, Delete)
+- Affichage formaté dans le CV
+
+**Compétences :**
+- Ajout avec validation (vérification doublons et valeur vide)
+- Suppression par index avec `splice()`
+- Affichage en tags colorés avec animation `popIn`
+- Support de la touche Enter pour ajout rapide
+
+**Techniques JavaScript utilisées :**
+- `Array.push()` : Ajout d'éléments
+- `Array.filter()` : Suppression d'éléments
+- `Array.find()` : Recherche d'élément
+- `Array.map()` : Transformation en HTML
+- `Array.splice()` : Suppression par index
+- `Array.includes()` : Vérification de présence
+- `String.trim()` : Nettoyage des espaces
+- `Date.now()` : Génération d'IDs uniques
+- `document.createElement()` : Création d'éléments
+- Template literals avec interpolation
+- Event handling mixte (addEventListener + onclick inline)
+
+**Apprentissages clés :**
+- Différence entre `filter()` (nouveau tableau) et `splice()` (modifie original)
+- Utilisation de `find()` pour modifier des objets dans un tableau
+- Génération d'IDs uniques avec timestamp
+- Validation de formulaires côté client
+- Création dynamique de formulaires complexes
+- Logs détaillés pour debugging
+
+**Tests effectués :**
+- ✅ Ajout de 5 expériences successives
+- ✅ Modification de champs avec mise à jour instantanée
+- ✅ Suppression d'expériences (première, milieu, dernière)
+- ✅ Ajout de formations multiples
+- ✅ Ajout de 10+ compétences
+- ✅ Validation : doublons de compétences refusés
+- ✅ Validation : compétences vides refusées
+- ✅ Animations CSS fonctionnelles (fadeIn, popIn)
+- ✅ Prévisualisation CV complète et dynamique
 
 **Dernière mise à jour :** [19/11/2025]
