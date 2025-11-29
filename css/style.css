@@ -388,6 +388,9 @@
 
 /*PRINT STYLES */
 @media print {
+    body.printing .no-print {
+        display: none;
+    }
     body {
         background: white;
         padding: 0;
