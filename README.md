@@ -10,9 +10,8 @@
 Application web interactive permettant de créer un CV professionnel en temps réel. L'utilisateur remplit un formulaire et voit son CV se générer instantanément avec des animations élégantes.
 
 ## 🔗 Lien GitHub Pages
-🚀 **Démonstration en ligne :** [Bientôt disponible]
-
-_(Le lien sera ajouté après activation de GitHub Pages)_
+🚀 **Démonstration en ligne :** 
+https://hassenfarah.github.io/hassen_farah_generateur_cv/
 
 ## 🛠️ Technologies Utilisées
 - **HTML5** : Structure sémantique, formulaires, accessibilité ✅
@@ -659,7 +658,5 @@ const fileName = `cv-${document.getElementById('fullName').value || 'donnees'}-$
 - Fichiers : 3 (HTML, CSS, JS)
 - Lignes de code : ~1500 lignes
 - Fonctions JavaScript : 25+
-- Commits : 5
-- Durée développement : [À compléter]
-
+- Commits : +5
 **Dernière mise à jour :** [29/11/2025]

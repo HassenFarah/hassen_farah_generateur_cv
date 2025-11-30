@@ -1,3 +1,5 @@
+
+
 /* ========================================
    GÉNÉRATEUR DE CV - STYLES CSS
    Phase 1 : 40% - Structure de base et Layout
@@ -282,20 +284,20 @@
     }
 
     .cv-item-subtitle {
-        color: #718096;
+        color: #092f67;
         font-size: 14px;
         margin-bottom: 5px;
     }
 
     .cv-item-date {
-        color: #a0aec0;
+        color: #031a38;
         font-size: 13px;
         font-style: italic;
         margin-bottom: 8px;
     }
 
     .cv-item-description {
-        color: #4a5568;
+        color: #0a285c;
         line-height: 1.6;
         font-size: 14px;
     }
@@ -323,7 +325,7 @@
 /*EMPTY STATE*/
     .empty-state{
         text-align: center;
-        color: #a0aec0;
+        color: #1355ac;
         padding: 40px;
         font-style: italic;
     }
@@ -447,3 +449,60 @@ textarea:focus-visible {
     outline: 3px solid #667eea;
     outline-offset: 2px;
 }
+
+
+/* Tout aligner à gauche dans le CV preview */
+#cv-preview {
+    text-align: left;
+}
+
+.cv-header,
+.cv-body,
+.cv-section,
+.cv-section-title,
+.cv-name,
+.cv-title,
+.cv-contact,
+.cv-summary-text,
+.cv-item,
+.cv-item-title,
+.cv-item-subtitle,
+.cv-item-date,
+.cv-item-description,
+.skills-grid,
+.skill-tag {
+    text-align: left;
+}
+.cv-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start; /* <-- à gauche */
+}
+.dynamic-section,
+.cv-item {
+    text-align: left;
+}
+.skills-grid {
+    justify-items: start; /* force les skills à partir de la gauche */
+}
+
+@media print {
+    /* Header du CV en noir et fond blanc */
+    .cv-header,
+    .cv-header * {
+        color: #000 !important;
+    }
+    .cv-header {
+        background: #fff !important;
+    }
+
+    /* Compétences en noir et fond blanc */
+    .skills-grid,
+    .skills-grid .skill-tag {
+        color: #000 !important;
+        background: #fff !important;
+    
+    }
+}
+
