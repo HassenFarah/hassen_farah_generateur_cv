@@ -91,7 +91,8 @@ nom_prenom_generateur_cv/
 - ✅ **Transitions globales** : fluidité des interactions
 - ✅ **Accessibilité** : focus-visible pour navigation clavier
 
-### Phase 3 - JavaScript (🔄 En cours - 20%)
+### Phase 3 - JavaScript 
+**Phase 1 (20% ajouté) :**
 **Ce qui est fait :**
 - ✅ Initialisation de l'application au chargement
 - ✅ Configuration des event listeners
